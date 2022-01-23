@@ -232,7 +232,6 @@ func testCLISchemaApplyDry(t T, h string, dsn string) {
 	require.NotContains(t, stdout.String(), "Are you sure?", "dry run should not prompt")
 	u := t.loadUsers()
 	require.Nil(t, u, "expected users table to not be created")
-
 }
 
 func TestCLI_Version(t *testing.T) {
