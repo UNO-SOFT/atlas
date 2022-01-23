@@ -28,33 +28,33 @@ If you would like to build Atlas from source without the UI code run:
 ```shell
 go build ./cmd/atlas
 ```
-
-{{- range .Blocks }}
+{{ range .Blocks }}
 {{ header .Depth }} {{ .CommandPath }}
 
 {{ .Short }}
 
-{{ if .UseLine }}
+{{- if .UseLine }}
+
 #### Usage
 ```
 {{ .UseLine }}
 ```
-{{ end }}
+{{- end }}
+{{- if .Long }}
 
-{{ if .Long }}
 #### Details
 {{ .Long }}
-{{ end }}
-
+{{- end }}
 {{ if .Example }}
 #### Example
+
 ```
 {{ .Example }}
 ```
-{{ end }}
+{{- end }}
 
-{{ $flags := .NonInheritedFlags }}
-{{ if $flags.HasAvailableFlags }}
+{{- $flags := .NonInheritedFlags }}
+{{- if $flags.HasAvailableFlags }}
 #### Flags
 ```
 {{ $flags.FlagUsages }}
