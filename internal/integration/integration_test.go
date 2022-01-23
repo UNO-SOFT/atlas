@@ -216,7 +216,7 @@ func testCLISchemaApplyDry(t T, h string, dsn string) {
 		dsn,
 		"-f",
 		f,
-		//"--dry-run",
+		"--dry-run",
 	)
 	stdout, stderr := bytes.NewBuffer(nil), bytes.NewBuffer(nil)
 	cmd.Stderr = stderr
