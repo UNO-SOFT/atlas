@@ -469,7 +469,7 @@ func TestPostgres_CLI(t *testing.T) {
 		})
 	})
 	t.Run("SchemaApplyDryRun", func(t *testing.T) {
-		liteRun(t, func(t *liteTest) {
+		pgRun(t, func(t *pgTest) {
 			testCLISchemaApplyDry(t, h, t.dsn())
 		})
 	})

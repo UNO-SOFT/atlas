@@ -532,8 +532,10 @@ func TestMySQL_CLI(t *testing.T) {
 		})
 	})
 	t.Run("SchemaApplyDryRun", func(t *testing.T) {
-		liteRun(t, func(t *liteTest) {
-			testCLISchemaApplyDry(t, h, t.dsn())
+		myRun(t, func(t *myTest) {
+			attrs := t.defaultAttrs()
+			charset, collate := attrs[0].(*schema.Charset), attrs[1].(*schema.Collation)
+			testCLISchemaApplyDry(t, fmt.Sprintf(h, charset.V, collate.V), t.dsn())
 		})
 	})
 }
